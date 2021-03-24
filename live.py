@@ -19,7 +19,12 @@ def load_game():
     3. Currency Roulette - try and guess the value of a random amount of USD in ILS""")
     game = select_game()
     difficulty = select_difficulty()
-    return game, difficulty
+    if game == 1:
+        memory_game(difficulty)
+    elif game == 2:
+        guess_game(difficulty)
+    elif game == 3:
+        currency_roulette(difficulty)
 
 
 # selection with return as integer 1-3
@@ -70,3 +75,15 @@ def select_difficulty():
         else:
             difficulty = input("The difficulties are 1, 2, 3, 4, or 5: ")
             continue
+
+
+def memory_game(difficulty):
+    pass
+
+
+def guess_game(difficulty):
+    pass
+
+
+def currency_roulette(difficulty):
+    pass
