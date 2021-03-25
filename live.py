@@ -1,4 +1,5 @@
 from string import ascii_letters
+import random
 
 
 # name input, verify it is valid name (only letters and more than 2 characters) and print with welcome
@@ -19,6 +20,10 @@ def load_game():
     3. Currency Roulette - try and guess the value of a random amount of USD in ILS""")
     game = select_game()
     difficulty = select_difficulty()
+    play_game(game, difficulty)
+
+
+def play_game(game, difficulty):
     if game == 1:
         memory_game(difficulty)
     elif game == 2:
@@ -31,7 +36,7 @@ def load_game():
 def select_game():
     game = input("Choose your game number: ")
     lower = game.lower()
-    while lower.islower():
+    while select_game:
         try:
             if lower.islower():
                 game = input("The games options are 1, 2, or 3, let's try again: ")
@@ -78,7 +83,48 @@ def select_difficulty():
 
 
 def memory_game(difficulty):
-    pass
+    print("Welcome to the Memory Game")
+
+    number = random.randint(1, difficulty)
+    tries = 0
+
+    guess = int(input("i am thinking about a number between and b, you have to"
+                      "guess the number in three tries"
+                      "guess the number: "))
+    tries += 1
+
+    if guess > number:
+        print("guess lower ;)")
+    if guess < number:
+        print("guess higher")
+
+    while guess != number and tries < 3:
+        guess = int(input("try again: "))
+        tries += 1
+
+        if guess > number:
+            print("guess lower")
+        if guess < number:
+            print("guess higher")
+
+    if guess == number:
+        print(f"you guessed correctly after {tries} attempts")
+    else:
+        print("you lost this game")
+    play_again()
+
+
+def play_again():
+    again = input("would you like to play another game? ").lower()
+    while play_again:
+        if again == "yes":
+            load_game()
+        elif again == "no":
+            print("thank you for playing with us")
+            break
+        else:
+            print("only yes, or no answers are allowed.")
+            play_again()
 
 
 def guess_game(difficulty):
