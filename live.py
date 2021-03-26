@@ -1,5 +1,5 @@
 from string import ascii_letters
-from GuessGame import guess_game
+from GuessGame import play_guess
 
 
 # name input, verify it is valid name (only letters and more than 2 characters) and print with welcome
@@ -27,7 +27,8 @@ def play_game(game, difficulty):
     if game == 1:
         memory_game(difficulty)
     elif game == 2:
-        guess_game(difficulty)
+        play_guess(difficulty)
+        play_again()
     elif game == 3:
         currency_roulette(difficulty)
 
@@ -84,15 +85,13 @@ def select_difficulty():
 
 def play_again():
     again = input("would you like to play another game? ").lower()
-    while play_again:
-        if again == "yes":
-            load_game()
-        elif again == "no":
-            print("thank you for playing with us")
-            break
-        else:
-            print("only yes, or no answers are allowed.")
-            play_again()
+    if again == "yes":
+        load_game()
+    elif again == "no":
+        print("thank you for playing with us")
+    else:
+        print("only yes, or no answers are allowed")
+        play_again()
 
 
 def memory_game(difficulty):
