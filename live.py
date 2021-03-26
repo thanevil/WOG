@@ -23,6 +23,7 @@ def load_game():
     play_game(game, difficulty)
 
 
+# call game, when done, ask to play again
 def play_game(game, difficulty):
     if game == 1:
         memory_game(difficulty)
@@ -83,6 +84,15 @@ def select_difficulty():
             continue
 
 
+def memory_game(difficulty):
+    pass
+
+
+def currency_roulette(difficulty):
+    pass
+
+
+# ask to play again or finish
 def play_again():
     again = input("would you like to play another game? ").lower()
     if again == "yes":
@@ -92,11 +102,3 @@ def play_again():
     else:
         print("only yes, or no answers are allowed")
         play_again()
-
-
-def memory_game(difficulty):
-    pass
-
-
-def currency_roulette(difficulty):
-    pass
