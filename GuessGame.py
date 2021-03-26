@@ -1,12 +1,13 @@
 import random
 
 
-# guess the number game, difficulty between 1 and a difficulty selected
+# generates a number between 1 and difficulty selected
 def generate_number(difficulty):
     number = random.randint(1, difficulty)
     return int(number)
 
 
+# input from the user guessing the number
 def get_guess_from_user(difficulty):
     guess = int(input(f"""I am thinking about a number between 1 and {difficulty},
 you have to guess the number in three tries.
@@ -14,6 +15,7 @@ guess the number: """))
     return int(guess)
 
 
+# comparing the guessed number with the generated one
 def compare_results(guess, number):
     tries = 0
     tries += 1
@@ -36,6 +38,7 @@ def compare_results(guess, number):
         return False
 
 
+# run the game
 def play_guess(difficulty):
     print("Welcome to the Memory Game")
     compare_results(get_guess_from_user(difficulty), generate_number(difficulty))
