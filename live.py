@@ -1,5 +1,7 @@
 from string import ascii_letters
 from GuessGame import play_guess
+from MemoryGame import play_memory
+from CurrencyRouletteGame import play_roulette
 
 
 # name input, verify it is valid name (only letters and more than 2 characters) and print with welcome
@@ -26,12 +28,14 @@ def load_game():
 # call game, when done, ask to play again
 def play_game(game, difficulty):
     if game == 1:
-        memory_game(difficulty)
+        play_memory(difficulty)
+        play_again()
     elif game == 2:
         play_guess(difficulty)
         play_again()
     elif game == 3:
-        currency_roulette(difficulty)
+        play_roulette(difficulty)
+        play_again()
 
 
 # selection with return as integer 1-3
@@ -82,14 +86,6 @@ def select_difficulty():
         else:
             difficulty = input("The difficulties are 1, 2, 3, 4, or 5: ")
             continue
-
-
-def memory_game(difficulty):
-    pass
-
-
-def currency_roulette(difficulty):
-    pass
 
 
 # ask to play again or finish
