@@ -1,9 +1,9 @@
-import random
+from random import randint
 
 
 # generates a number between 1 and difficulty selected
 def generate_number(difficulty):
-    number = random.randint(1, difficulty)
+    number = randint(1, difficulty)
     return int(number)
 
 
