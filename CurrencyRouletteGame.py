@@ -1,11 +1,10 @@
-from exchangeratesapi import Api
+from forex_python.converter import CurrencyRates
 from random import randint
 
 
 # get exchange rate from ILS to USD
 def exchange_rate():
-    api = Api()
-    ils_usd = api.get_rate('USD', 'ILS')
+    ils_usd = CurrencyRates().get_rate('USD', 'ILS')
     formatted_rate = round(ils_usd, 1)  # "{:.2f}".format(ils_usd)
     return formatted_rate
 
