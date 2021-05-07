@@ -1,6 +1,6 @@
 import random
 import time
-import os
+from Utils import screen_cleaner
 
 
 # generate list of numbers (length = difficulty) between 1 and 101
@@ -8,7 +8,7 @@ def generate_sequence(difficulty):
     random_list = random.sample(range(1, 101), difficulty)
     print(random_list)
     time.sleep(0.7)
-    os.system('cls' if os.name == 'nt' else 'clear')
+    screen_cleaner()
     return random_list
 
 
@@ -44,4 +44,5 @@ def play_memory(difficulty):
         b = "Loading" + "." * x
         print(b, end="\r")
         time.sleep(1)
+    screen_cleaner()
     is_list_equal(generate_sequence(difficulty), get_list_from_user(difficulty))
