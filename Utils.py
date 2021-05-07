@@ -11,5 +11,5 @@ def new_scores_file():
 
 
 def del_scores_file():
-    os.remove("Scores.txt")
-
+    if os.path.exists("Scores.txt"):
+        os.remove("Scores.txt")
