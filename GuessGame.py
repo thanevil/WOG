@@ -1,5 +1,5 @@
 from random import randint
-
+from Score import add_score
 
 # generates a number between 1 and difficulty selected
 def generate_number(difficulty):
@@ -32,6 +32,7 @@ def compare_results(guess, number):
             print("guess higher")
     if guess == number:
         print(f"you guessed correctly after {tries} attempts")
+        add_score()
         return True
     else:
         print("you lost this game")
