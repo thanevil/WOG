@@ -16,7 +16,7 @@ guess the number: """))
 
 
 # comparing the guessed number with the generated one
-def compare_results(guess, number):
+def compare_results(guess, number, difficulty):
     tries = 0
     tries += 1
     if guess > number:
@@ -32,7 +32,7 @@ def compare_results(guess, number):
             print("guess higher")
     if guess == number:
         print(f"you guessed correctly after {tries} attempts")
-        add_score()
+        add_score(difficulty)
         return True
     else:
         print("you lost this game")
@@ -42,4 +42,4 @@ def compare_results(guess, number):
 # run the game
 def play_guess(difficulty):
     print("Welcome to the Memory Game")
-    compare_results(get_guess_from_user(difficulty), generate_number(difficulty))
+    compare_results(get_guess_from_user(difficulty), generate_number(difficulty), difficulty)

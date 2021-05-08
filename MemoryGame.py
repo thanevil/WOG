@@ -27,10 +27,10 @@ def get_list_from_user(difficulty):
 
 
 # verifies the generated and the user input list are equal/not equal
-def is_list_equal(guess, generated):
+def is_list_equal(guess, generated,difficulty):
     if guess == generated:
         print("great memory!")
-        add_score()
+        add_score(difficulty)
         return True
     else:
         print("you need to work on that memory")
@@ -47,4 +47,4 @@ def play_memory(difficulty):
         print(b, end="\r")
         time.sleep(1)
     screen_cleaner()
-    is_list_equal(generate_sequence(difficulty), get_list_from_user(difficulty))
+    is_list_equal(generate_sequence(difficulty), get_list_from_user(difficulty), difficulty)

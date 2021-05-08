@@ -15,7 +15,7 @@ def get_money_interval(difficulty, guess, number):
     total = rate * number
     if int(total) - (5 - int(difficulty)) < int(guess) < int(total) + (5 - int(difficulty)):
         print("you guessed right")
-        add_score()
+        add_score(difficulty)
         return True
     else:
         print("you might have more luck next time")
