@@ -1,6 +1,6 @@
 from forex_python.converter import CurrencyRates
 from random import randint
-
+from Score import add_score
 
 # get exchange rate from ILS to USD
 def exchange_rate():
@@ -15,6 +15,7 @@ def get_money_interval(difficulty, guess, number):
     total = rate * number
     if int(total) - (5 - int(difficulty)) < int(guess) < int(total) + (5 - int(difficulty)):
         print("you guessed right")
+        add_score(difficulty)
         return True
     else:
         print("you might have more luck next time")

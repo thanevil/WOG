@@ -1,6 +1,7 @@
 import random
 import time
-import os
+from Utils import screen_cleaner
+from Score import add_score
 
 
 # generate list of numbers (length = difficulty) between 1 and 101
@@ -8,7 +9,7 @@ def generate_sequence(difficulty):
     random_list = random.sample(range(1, 101), difficulty)
     print(random_list)
     time.sleep(0.7)
-    os.system('cls' if os.name == 'nt' else 'clear')
+    screen_cleaner()
     return random_list
 
 
@@ -26,9 +27,10 @@ def get_list_from_user(difficulty):
 
 
 # verifies the generated and the user input list are equal/not equal
-def is_list_equal(guess, generated):
+def is_list_equal(guess, generated,difficulty):
     if guess == generated:
         print("great memory!")
+        add_score(difficulty)
         return True
     else:
         print("you need to work on that memory")
@@ -44,4 +46,5 @@ def play_memory(difficulty):
         b = "Loading" + "." * x
         print(b, end="\r")
         time.sleep(1)
-    is_list_equal(generate_sequence(difficulty), get_list_from_user(difficulty))
+    screen_cleaner()
+    is_list_equal(generate_sequence(difficulty), get_list_from_user(difficulty), difficulty)
