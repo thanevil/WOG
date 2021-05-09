@@ -2,8 +2,7 @@ from string import ascii_letters
 from GuessGame import play_guess
 from MemoryGame import play_memory
 from CurrencyRouletteGame import play_roulette
-from Utils import new_scores_file, del_scores_file
-from Score import calc_score
+from Utils import del_scores_file
 
 
 # name input, verify it is valid name (only letters and more than 2 characters) and print with welcome
@@ -98,7 +97,6 @@ def play_again():
         load_game()
     elif again == "no":
         print("thank you for playing with us")
-        calc_score()  # test to ensure score is calculated correctly
         del_scores_file()
     else:
         print("only yes, or no answers are allowed")
