@@ -2,6 +2,7 @@ from forex_python.converter import CurrencyRates
 from random import randint
 from Score import add_score
 
+
 # get exchange rate from ILS to USD
 def exchange_rate():
     ils_usd = CurrencyRates().get_rate('USD', 'ILS')
