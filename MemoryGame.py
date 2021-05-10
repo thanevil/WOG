@@ -27,7 +27,8 @@ def get_list_from_user(difficulty):
 
 
 # verifies the generated and the user input list are equal/not equal
-def is_list_equal(guess, generated,difficulty):
+def is_list_equal(guess, generated, difficulty):
+
     if guess == generated:
         print("great memory!")
         add_score(difficulty)
@@ -40,7 +41,7 @@ def is_list_equal(guess, generated,difficulty):
 # run the game
 def play_memory(difficulty):
     print(f"""welcome to the Memory Game
-    i will display {difficulty} numbers for 0.7 seconds and you will have to remember them in the correct order. 
+    i will display {difficulty} numbers for 1 seconds and you will have to remember them in the correct order. 
     get ready!""")
     for x in range(0, 5):  # will display loading for 5 second for the user to prepare
         b = "Loading" + "." * x
