@@ -15,29 +15,34 @@ def welcome(name):
             "Here you can find many cool games to play.")
 
 
-# prints games options, calls game+difficulty selection and returns their values
+# loop that prints games options, calls game+difficulty selection until user doesnt want to play
 def load_game():
-    print("""Please choose a game to play:
+    while load_game:
+        print("""Please choose a game to play:
     1. Memory Game - a sequence of numbers will appear for 1 second and you have to
        guess it back
     2. Guess Game - guess a number and see if you chose like the computer
     3. Currency Roulette - try and guess the value of a random amount of USD in ILS""")
-    game = select_game()
-    difficulty = select_difficulty()
-    play_game(game, difficulty)
+        game = select_game()
+        difficulty = select_difficulty()
+        play_game(game, difficulty)
+        again = input("would you like to play another game? ").lower()
+        if again == "yes":
+            continue
+        elif again == "no":
+            print("thank you for playing with us")
+            del_scores_file()
+            break
 
 
 # call game, when done, ask to play again
 def play_game(game, difficulty):
     if game == 1:
         play_memory(difficulty)
-        play_again()
     elif game == 2:
         play_guess(difficulty)
-        play_again()
     elif game == 3:
         play_roulette(difficulty)
-        play_again()
 
 
 # selection with return as integer 1-3
@@ -88,16 +93,3 @@ def select_difficulty():
         else:
             difficulty = input("The difficulties are 1, 2, 3, 4, or 5: ")
             continue
-
-
-# ask to play again or finish
-def play_again():
-    again = input("would you like to play another game? ").lower()
-    if again == "yes":
-        load_game()
-    elif again == "no":
-        print("thank you for playing with us")
-        del_scores_file()
-    else:
-        print("only yes, or no answers are allowed")
-        play_again()
