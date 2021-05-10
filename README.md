@@ -10,3 +10,7 @@ devops project
 -a win adds to a score file created when the application starts  
 -score file is deleted when done playing (if application crashes, when app starts it checs for the file and deletes it)  
 
+external libraries used:
+-flask  
+-forex_python  
+
