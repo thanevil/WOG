@@ -17,8 +17,4 @@ def add_score(difficulty):
         score.close()
 
 
-# test to ensure score is calculated correctly
-def calc_score():
-    score = open("Scores.txt", "r")
-    for line in score:
-        print(line)
+
