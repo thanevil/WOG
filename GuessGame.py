@@ -1,6 +1,7 @@
 from random import randint
 from Score import add_score
 
+
 # generates a number between 1 and difficulty selected
 def generate_number(difficulty):
     number = randint(1, difficulty)
