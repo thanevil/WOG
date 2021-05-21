@@ -5,4 +5,4 @@ COPY MainScores.py /app
 COPY Scores.txt /app
 COPY templates /app/templates
 EXPOSE 5000
-CMD python3 /app/MainScores.py
+CMD ["python3", "/app/MainScores.py"]

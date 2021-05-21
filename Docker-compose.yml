@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  score-web:
+    build: .
+    volumes:
+      - . /app
+    ports:
+      - 8777:5000
+    image: thanevil/worldofgames:latest
+
+
+
