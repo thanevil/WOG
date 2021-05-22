@@ -1,0 +1,25 @@
+pipeline {
+    agent {label 'mac'}
+    stages {
+        stage ("Clone") {
+            steps {
+                git "https://github.com/thanevil/WOG.git"
+
+            }
+        }
+        stage ("Build and Run") {
+            steps {
+                script {
+                sh 'docker-compose up -d'
+                }
+            }
+        }
+        stage ("Test-Selenium") {
+            steps {
+                script {
+                sh 'python3 e2e.py'
+                }
+            }
+        }
+    }
+}
