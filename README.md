@@ -14,3 +14,4 @@ external libraries used:
 -flask  
 -forex_python  
 -selenium  
+
