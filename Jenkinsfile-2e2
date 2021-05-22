@@ -8,10 +8,10 @@ pipeline {
             }
         }
         stage ("Build and Run") {
-            withEnv(["PATH=$PATH:~/.local/bin"])
-                steps {
-                    script {
-                    sh 'docker-compose up -d'
+            steps {
+                script {
+                    withEnv(["PATH=$PATH:~/.local/bin"])
+                        sh 'docker-compose up -d'
                 }
             }
         }
