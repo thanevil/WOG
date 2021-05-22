@@ -10,8 +10,7 @@ pipeline {
         stage ("Build and Run") {
             steps {
                 script {
-                    withEnv(["PATH=$PATH:~/.local/bin"])
-                        sh 'docker-compose up -d'
+                sh 'docker-compose up -d'
                 }
             }
         }
