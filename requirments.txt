@@ -1,0 +1,3 @@
+flask
+forex_python
+selenium
