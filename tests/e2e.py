@@ -7,7 +7,7 @@ url = os.getenv("URL")
 
 
 def test_scores_service():
-    # url = input("what is the current url (ex.http://127.0.0.1:5000/score): ")
+    # url = input("what is the current url (ex.http://127.0.0.1:8777/score): ")
     driver = webdriver.Chrome()
     driver.get(url)
     score = driver.find_element_by_id("score").text

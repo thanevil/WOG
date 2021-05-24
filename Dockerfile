@@ -4,5 +4,5 @@ RUN pip install flask
 COPY MainScores.py /app
 COPY Scores.txt /app
 COPY templates /app/templates
-EXPOSE 5000
+EXPOSE 8777
 CMD ["python3", "/app/MainScores.py"]
