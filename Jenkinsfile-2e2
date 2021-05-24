@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'mac'}
+    agent {label 'windows'}
     stages {
         stage ("Clone") {
             steps {
@@ -10,16 +10,34 @@ pipeline {
         stage ("Build and Run") {
             steps {
                 script {
-                sh './usr/local/bin/docker-compose up -d'
+                bat '''
+                docker build -t mainscore .
+                docker run -d -p 8777:8777 --name web mainscore'''
                 }
             }
         }
         stage ("Test-Selenium") {
             steps {
                 script {
-                sh 'python3 e2e.py'
+                bat '''
+                cd tests
+                python e2e.py
+                '''
                 }
             }
         }
+        stage ("Finalaizing") {
+            steps {
+                script {
+                bat '''
+                docker stop web
+                docker tag mainscore thanevil/wog
+                docker commit web thanevil/wog
+                docker push thanevil/wog
+                '''
+                }
+            }
+        }
+
     }
 }
