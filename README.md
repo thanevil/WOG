@@ -10,7 +10,7 @@ devops project
 -a win adds to a score file created when the application starts  
 -test folder with selenium test for the flask server  
 -jenkinsfile: runs on MACos enviorment, checkout>tar.gz>rotate older version using bash>move newest version to version control folder  
--jenkinsfile-e2e: checkout>build>test>push to hub
+-jenkinsfile-2e2: checkout>build>test>push to hub
 
 external libraries used:  
 -flask  
