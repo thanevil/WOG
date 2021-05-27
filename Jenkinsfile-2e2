@@ -4,7 +4,6 @@ pipeline {
         stage ("Clone") {
             steps {
                 git "https://github.com/thanevil/WOG.git"
-
             }
         }
         stage ("Build and Run") {
