@@ -4,9 +4,10 @@ services:
   score-web:
     build: .
     volumes:
-      - . /app
+      - . /apps
+      - ./score-data:/app
     ports:
-      - 8777:5000
+      - 8777:8777
     image: thanevil/worldofgames:latest
 
 
