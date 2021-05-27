@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route('/score')
 def score_server():
-    if os.path.exists("Scores.txt"):
-        with open("Scores.txt", "r") as f:
+    if os.path.exists("/app/Scores.txt"):
+        with open("/app/Scores.txt", "r") as f:
             score = f.read()
             f.close()
             return render_template('index.html', SCORE=score)
