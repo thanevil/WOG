@@ -1,26 +1,27 @@
 version: '3'
 services:
 
-  # Front End
-
-  score-web:
-    build: .
-    volumes:
-      - . /apps
-      - score-data:/app
-    ports:
-      - 8777:8777
-    image: thanevil/worldofgames:latest
-
     # Database Service (Mysql)
 
   mysqldb:
-    image: mysql/mysql-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfiledb
+    image: thanevil/mysql
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: password
+
+  # Front End
+
+  score-web:
+    build: .
+    image: thanevil/worldofgames:latest
     volumes:
-      - score-data:/var/lib/mysql
-volumes:
-  score-data:
+      - . /app
+    ports:
+      - 8777:8777
+    depends_on:
+      - mysqldb
+
