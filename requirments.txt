@@ -1,3 +1,4 @@
 flask
 forex_python
 selenium
+mysql-connector-python
