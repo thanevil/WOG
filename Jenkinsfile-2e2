@@ -10,13 +10,14 @@ pipeline {
             steps {
                 script {
                 bat '''
-                docker build -t mainscore .
-                docker run -d -p 8777:8777 --name web --mount source=score-data,target=/app mainscore'''
+                docker-compose build
+                docker-compose up -d'''
                 }
             }
         }
         stage ("Test-Selenium") {
             steps {
+                sleep 20
                 script {
                 bat '''
                 cd tests
@@ -29,7 +30,7 @@ pipeline {
             steps {
                 script {
                 bat '''
-                docker stop web
+                docker-compose down
                 docker tag mainscore thanevil/wog
                 docker commit web thanevil/wog
                 docker push thanevil/wog

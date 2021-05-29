@@ -1,7 +1,8 @@
 FROM python:3.9.5-slim
-WORKDIR ./apps
+WORKDIR ./app
 RUN pip install flask
-COPY MainScores.py /apps
-COPY templates /apps/templates
+RUN pip install mysql-connector-python
+COPY MainScores.py /app
+COPY templates /app/templates
 EXPOSE 8777
-CMD python3 /apps/MainScores.py
+CMD python3 MainScores.py

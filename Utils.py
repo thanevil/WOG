@@ -1,6 +1,7 @@
 import os
 
 
+# cleans the CLI screen
 def screen_cleaner():
     os.system('cls' if os.name == 'nt' else 'clear')
 

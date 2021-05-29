@@ -1,17 +1,19 @@
 from flask import Flask, render_template
-import os
+from mysql.connector import connect
 
 app = Flask(__name__)
 
 
 @app.route('/score')
 def score_server():
-    if os.path.exists("/app/Scores.txt"):
-        with open("/app/Scores.txt", "r") as f:
-            score = f.read()
-            f.close()
-            return render_template('index.html', SCORE=score)
-    else:
+    try:
+        conn = connect(host="mysqldb", user="root", password="password", database="games", autocommit=True)
+        cursor = conn.cursor()
+        cursor.execute("SELECT score FROM users_scores WHERE ID = '1'")
+        record = cursor.fetchone()
+        score = int(record[0])
+        return render_template('index.html', SCORE=score)
+    except:
         return render_template('error.html')
 
 
