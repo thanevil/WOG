@@ -9,7 +9,7 @@ devops project
 -flask server shows live score on the web (/score) or error if no score is detected  
 -test folder with selenium test for the flask server  
 -both flask server and mysql are built into docker containers using docker-compose
--jenkinsfile: runs on MACos enviorment, checkout>tar.gz>rotate older version using bash>
+-jenkinsfile: runs on MACos environment, checkout>tar.gz>rotate older version using bash>
 move the newest version to version control folder  
 -jenkinsfile-2e2: checkout>build>test>push to hub 
 
